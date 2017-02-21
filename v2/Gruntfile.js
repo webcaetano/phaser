@@ -30,7 +30,6 @@ module.exports = function (grunt) {
     grunt.registerTask('tsdocs', ['clean:out', 'pixidoc', 'gitclone:plugins', 'jsdoc:json', 'buildtsdoc:pixi', 'buildtsdoc:phaser', 'replace:phasertsdefheader', 'clean:out']);
 
     grunt.registerTask('custom', 'Build a custom version of Phaser', function(arg) {
-
         var modules = {
             'intro':            { 'description': 'Phaser UMD wrapper',                          'optional': true, 'stub': false },
             'phaser':           { 'description': 'Phaser Globals',                              'optional': false, 'stub': false },
@@ -406,6 +405,7 @@ module.exports = function (grunt) {
         grunt.task.run('full');
         grunt.task.run('arcadephysics');
         grunt.task.run('nophysics');
+        grunt.task.run('minimal');
         grunt.task.run('minimum');
         grunt.task.run('split');
 
@@ -543,6 +543,19 @@ module.exports = function (grunt) {
 
         grunt.option('exclude', 'arcade,ninja,p2,tilemaps,particles,creature,weapon');
         grunt.option('filename', 'phaser-no-physics');
+        grunt.option('sourcemap', true);
+        grunt.option('copy', false);
+        grunt.option('copycustom', true);
+        grunt.option('uglify', true);
+
+        grunt.task.run('custom');
+
+    });
+
+
+    grunt.registerTask('minimal', 'Phaser minimal version', function() {
+        grunt.option('exclude', 'arcade,ninja,p2,tilemaps,particles,creature,retrofont,weapon,geom,gamepad,rendertexture,bitmaptext,math,net,sound,debug,utils,flexgrid,video,rope,keyboard');
+        grunt.option('filename', 'phaser-minimal');
         grunt.option('sourcemap', true);
         grunt.option('copy', false);
         grunt.option('copycustom', true);
