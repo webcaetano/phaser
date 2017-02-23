@@ -554,7 +554,7 @@ module.exports = function (grunt) {
 
 
     grunt.registerTask('minimal', 'Phaser minimal version', function() {
-        grunt.option('exclude', 'arcade,ninja,p2,tilemaps,particles,creature,retrofont,weapon,geom,gamepad,rendertexture,bitmaptext,math,net,sound,debug,utils,flexgrid,video,rope,keyboard');
+        grunt.option('exclude', 'arcade,ninja,p2,tilemaps,particles,creature,retrofont,weapon,geom,gamepad,bitmaptext,math,net,sound,debug,utils,flexgrid,video,rope,keyboard');
         grunt.option('filename', 'phaser-minimal');
         grunt.option('sourcemap', true);
         grunt.option('copy', false);
