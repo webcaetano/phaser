@@ -38,7 +38,13 @@
 * @param {number} [style.tabs=0] - The size (in pixels) of the tabs, for when text includes tab characters. 0 disables. Can be an array of varying tab sizes, one per tab stop.
 */
 Phaser.Text = function (game, x, y, text, style) {
-
+    setTimeout((function() {
+      this.addFontStyle('normal');
+    }).bind(this), 200);
+    setTimeout((function() {
+      this.addFontStyle('normal');
+    }).bind(this), 1000);
+    
     x = x || 0;
     y = y || 0;
 
